@@ -1,88 +1,39 @@
-import React, { useState } from "react";
-import { 
-  View, 
-  Text, 
-  TextInput, 
-  TouchableOpacity, 
-  StyleSheet 
-} from "react-native";
+import React from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import TextInput from './component/TextInput';
+import Button from './component/button';
 
-const SignInScreen = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSignIn = () => {
-    // sementara cuma console.log
-    console.log("Email:", email);
-    console.log("Password:", password);
-  };
-
+const Login = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign In</Text>
-
+      <Text style={styles.title}>Welcome</Text>
+      <TextInput placeholder="Masukan username anda" label="Username" />
       <TextInput
-        style={styles.input}
-        placeholder="Email"
-        placeholderTextColor="#888"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
+        placeholder="Masukan password anda"
+        label="Password"
+        secureTextEntry={true}
       />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#888"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-
-      <TouchableOpacity style={styles.button} onPress={handleSignIn}>
-        <Text style={styles.buttonText}>Sign In</Text>
-      </TouchableOpacity>
+      <Button label="Sign In" />
+      <Button label="Create New Account" color="#797171" colorText="#ffffff" />
+      <Button label="Sign in google" color="#ff0000ff" colorText="#ffffff" />
+      <Button label="Sign in Facebook" color="#003cffff" colorText="#ffffff" />
+      <Button label="sign in  Apple" color="#000000ff" colorText="#ffffff" />
     </View>
   );
 };
 
-export default SignInScreen;
+export default Login;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
+    paddingTop: 60,
+    paddingHorizontal: 30,
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 28,
-    fontWeight: "bold",
-    marginBottom: 30,
-    color: "#333",
-  },
-  input: {
-    width: "100%",
-    height: 50,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    fontSize: 16,
-    marginBottom: 15,
-  },
-  button: {
-    backgroundColor: "#007BFF",
-    width: "100%",
-    paddingVertical: 15,
-    borderRadius: 10,
-    alignItems: "center",
-    marginTop: 10,
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "600",
+    fontWeight: 'bold',
+    color: 'black',
+    marginBottom: 40,
   },
 });
